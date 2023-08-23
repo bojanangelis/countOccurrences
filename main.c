@@ -14,7 +14,8 @@ int countOccurrences(char *line, char *word) {
 int countOccurrencesRecursive(char *line, char *word) {
     char *res = strstr(line, word);
     if (res == NULL) return 0;
-    return 1 + countOccurrencesRecursive(res + 1, word);
+    //overlap res + 1 ==> res + strlen(word)
+    return 1 + countOccurrencesRecursive(res + strlen(word), word);
 }
 
 int main() {
